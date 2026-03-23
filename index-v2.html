@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Münzgespeiste Kinderfahrgeschäfte zu kaufen. Über 500 Stück verfügbar. Elefanten, Oldtimer, Quads, Raketen & mehr. Ab 100 €.">
+  <title>Kiddy Rider Spielgeräte — Über 500 Fahrgeschäfte kaufen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ============================================================
+       VARIABLES
+    ============================================================ */
+    :root {
+      --navy:       #1B2A4A;
+      --navy-light: #243460;
+      --red:        #C41E3A;
+      --gold:       #F5C518;
+      --gold-dark:  #C9991A;
+      --cream:      #FDF8EE;
+      --cream-dark: #EDE3CC;
+      --ink:        #1A1208;
+      --white:      #FFFFFF;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--ink);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible          { opacity: 1; transform: translateY(0); }
+    .reveal.delay-1          { transition-delay: 0.12s; }
+    .reveal.delay-2          { transition-delay: 0.24s; }
+    .reveal.delay-3          { transition-delay: 0.38s; }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Angled section transitions */
+    .clip-bottom      { clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%); padding-bottom: 9%; }
+    .clip-top-bottom  { clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%); padding-top: 8%; padding-bottom: 9%; margin-top: -4%; }
+    .clip-top         { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); padding-top: 9%; margin-top: -5%; }
+
+    @media (max-width: 700px) {
+      .clip-bottom, .clip-top-bottom, .clip-top {
+        clip-path: none; padding-top: 5rem; padding-bottom: 5rem; margin-top: 0;
+      }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    /* Background photo — desaturated, tinted */
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/elefant-fahrt-grau-gross.jpeg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      filter: saturate(0.2) contrast(1.1);
+    }
+
+    /* Diagonal carnival stripe overlay */
+    .hero-stripes {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -52deg,
+        transparent 0px,
+        transparent 28px,
+        rgba(196, 30, 58, 0.07) 28px,
+        rgba(196, 30, 58, 0.07) 56px
+      );
+    }
+
+    /* Sunburst / conic rays */
+    .hero-burst {
+      position: absolute;
+      width: min(900px, 130vw);
+      height: min(900px, 130vw);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: conic-gradient(
+        from 0deg,
+        rgba(245,197,24,0.07) 0deg, transparent 4deg,
+        transparent 16deg, rgba(245,197,24,0.07) 20deg,
+        transparent 24deg, transparent 36deg,
+        rgba(245,197,24,0.07) 40deg, transparent 44deg,
+        transparent 56deg, rgba(245,197,24,0.07) 60deg,
+        transparent 64deg, transparent 76deg,
+        rgba(245,197,24,0.07) 80deg, transparent 84deg,
+        transparent 96deg, rgba(245,197,24,0.07) 100deg,
+        transparent 104deg, transparent 116deg,
+        rgba(245,197,24,0.07) 120deg, transparent 124deg,
+        transparent 136deg, rgba(245,197,24,0.07) 140deg,
+        transparent 144deg, transparent 156deg,
+        rgba(245,197,24,0.07) 160deg, transparent 164deg,
+        transparent 176deg, rgba(245,197,24,0.07) 180deg,
+        transparent 184deg, transparent 196deg,
+        rgba(245,197,24,0.07) 200deg, transparent 204deg,
+        transparent 216deg, rgba(245,197,24,0.07) 220deg,
+        transparent 224deg, transparent 236deg,
+        rgba(245,197,24,0.07) 240deg, transparent 244deg,
+        transparent 256deg, rgba(245,197,24,0.07) 260deg,
+        transparent 264deg, transparent 276deg,
+        rgba(245,197,24,0.07) 280deg, transparent 284deg,
+        transparent 296deg, rgba(245,197,24,0.07) 300deg,
+        transparent 304deg, transparent 316deg,
+        rgba(245,197,24,0.07) 320deg, transparent 324deg,
+        transparent 336deg, rgba(245,197,24,0.07) 340deg,
+        transparent 344deg, transparent 356deg,
+        rgba(245,197,24,0.07) 360deg
+      );
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(245, 197, 24, 0.5);
+      padding: 0.4rem 1.75rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 0.15s;
+    }
+
+    .hero-title {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      color: var(--gold);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-shadow: 5px 5px 0 rgba(196, 30, 58, 0.45);
+      opacity: 0;
+      animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.35s;
+    }
+
+    .hero-subtitle {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.9rem, 2.8vw, 1.7rem);
+      color: var(--white);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: 0.75rem;
+      opacity: 0;
+      animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.55s;
+    }
+
+    .hero-rule {
+      width: 70px;
+      height: 3px;
+      background: var(--red);
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards 0.75s;
+    }
+
+    .hero-tagline {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.12em;
+      opacity: 0;
+      animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1.4s;
+    }
+
+    .hero-scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+    }
+
+    /* ============================================================
+       STORY
+    ============================================================ */
+    .story {
+      background: var(--cream);
+      padding: 6rem 0 5rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 760px) {
+      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* Left: big pull-quote */
+    .story-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+    }
+
+    .story-pullquote {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      color: var(--navy);
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .story-pullquote::before {
+      content: '"';
+      position: absolute;
+      top: -2.5rem;
+      left: -1rem;
+      font-size: 9rem;
+      font-family: 'Abril Fatface', serif;
+      color: var(--red);
+      opacity: 0.12;
+      line-height: 1;
+    }
+
+    .story-intro {
+      margin-top: 1.75rem;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #3D3020;
+    }
+
+    .story-ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .story-ornament::before,
+    .story-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--cream-dark), transparent);
+    }
+    .story-ornament-glyph { color: var(--red); font-size: 1rem; }
+
+    /* Right: content blocks */
+    .story-block { margin-bottom: 2.25rem; }
+
+    .story-block-heading {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--cream-dark);
+    }
+
+    .story-block p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #3D3020;
+    }
+
+    .story-block ul {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+    .story-block ul li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #3D3020;
+      padding: 0.15rem 0 0.15rem 1.5rem;
+      position: relative;
+    }
+    .story-block ul li::before {
+      content: '★';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      color: var(--red);
+      font-size: 0.55rem;
+    }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    .gallery {
+      background: var(--navy);
+      padding: 6rem 0 4rem;
+    }
+
+    .gallery-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-heading {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1rem 2rem 2.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--red) rgba(255,255,255,0.08);
+      cursor: grab;
+      user-select: none;
+    }
+    .gallery-track:active { cursor: grabbing; }
+    .gallery-track::-webkit-scrollbar        { height: 3px; }
+    .gallery-track::-webkit-scrollbar-track  { background: rgba(255,255,255,0.05); }
+    .gallery-track::-webkit-scrollbar-thumb  { background: var(--red); border-radius: 2px; }
+
+    .gallery-item {
+      flex: 0 0 295px;
+      scroll-snap-align: start;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-item:hover                    { transform: scale(1.04) rotate(-1.2deg); z-index: 2; }
+    .gallery-item:nth-child(even):hover    { transform: scale(1.04) rotate(1.2deg); }
+
+    .gallery-item img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      border: 3px solid rgba(245, 197, 24, 0.25);
+      outline: 1px solid rgba(245, 197, 24, 0.08);
+      outline-offset: 5px;
+      filter: saturate(0.85) contrast(1.05);
+      transition: filter 0.3s ease, border-color 0.3s ease;
+    }
+    .gallery-item:hover img {
+      filter: saturate(1.1) contrast(1.1);
+      border-color: rgba(245,197,24,0.7);
+    }
+
+    .gallery-caption {
+      margin-top: 0.6rem;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ============================================================
+       OFFER
+    ============================================================ */
+    .offer {
+      background: var(--red);
+      padding: 7rem 0 6rem;
+    }
+
+    .offer-head {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .offer-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.75rem;
+    }
+
+    .offer-heading {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      color: var(--gold);
+      text-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+    }
+
+    .offer-cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    /* Ticket card */
+    .ticket {
+      position: relative;
+      background: var(--cream);
+      width: 270px;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Perforated top line */
+    .ticket::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--red) 0, var(--red) 5px,
+        transparent 5px, transparent 9px
+      );
+    }
+    .ticket--highlight::before {
+      background: repeating-linear-gradient(
+        to right,
+        var(--gold) 0, var(--gold) 5px,
+        transparent 5px, transparent 9px
+      );
+    }
+
+    /* Notch cut-outs */
+    .ticket::after {
+      content: '';
+      position: absolute;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--red);
+      top: 50%; transform: translateY(-50%);
+      left: -11px;
+      box-shadow: 282px 0 0 0 var(--red);
+    }
+
+    .ticket--highlight {
+      background: var(--navy);
+    }
+
+    .ticket-price {
+      font-family: 'Abril Fatface', serif;
+      font-size: 3.75rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .ticket--highlight .ticket-price { color: var(--gold); }
+
+    .ticket-label {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .ticket--highlight .ticket-label { color: rgba(255,255,255,0.65); }
+
+    .ticket-badge {
+      margin-top: 0.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(196,30,58,0.1);
+      padding: 0.2rem 0.8rem;
+    }
+    .ticket--highlight .ticket-badge {
+      color: var(--gold);
+      background: rgba(245,197,24,0.15);
+    }
+
+    .offer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact {
+      background: var(--gold);
+      padding: 7rem 0 6rem;
+      text-align: center;
+    }
+
+    .contact-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(27,42,74,0.55);
+      margin-bottom: 1rem;
+    }
+
+    .contact-heading {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--navy);
+      line-height: 1.05;
+      margin-bottom: 3rem;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 3px solid var(--navy);
+      padding-bottom: 0.2rem;
+      transition: color 0.2s ease, border-color 0.2s ease, letter-spacing 0.2s ease;
+    }
+    .contact-link:hover {
+      color: var(--red);
+      border-color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================================
+       IMPRESSUM FOOTER
+    ============================================================ */
+    .impressum {
+      background: #080808;
+      padding: 1.75rem 0;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: #3D3D3D;
+    }
+
+    .impressum strong { color: #555; font-weight: 600; }
+
+    .impressum a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .impressum a:hover { color: var(--gold); }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-stripes"></div>
+    <div class="hero-burst"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">Ode-Automaten GmbH · Winsen (Luhe)</div>
+      <h1 class="hero-title">Kiddy<br>Rider</h1>
+      <span class="hero-subtitle">Spielgeräte für Kinder</span>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">Über 500 Fahrgeschäfte &nbsp;·&nbsp; ab 100 €</p>
+    </div>
+
+    <div class="hero-scroll-hint">Entdecken</div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="story clip-bottom">
+    <div class="container">
+      <div class="story-grid">
+
+        <div class="story-left reveal">
+          <p class="story-eyebrow">Über uns</p>
+          <h2 class="story-pullquote">Der Zauber des kleinen Augenblicks</h2>
+          <p class="story-intro">
+            Es ist ein vertrautes Bild: Ein leises Surren, bunte Lichter, die im Takt blinken,
+            und das rhythmische Schaukeln eines kleinen Feuerwehrautos oder eines stolzen Schimmels.
+            Für Erwachsene sind Kiddy Rider oft nur bunte Farbtupfer in der Ladenpassage —
+            doch für Kinder sind sie das Tor zu einer anderen Welt.
+          </p>
+          <div class="story-ornament">
+            <span class="story-ornament-glyph">✦</span>
+          </div>
+        </div>
+
+        <div class="story-right">
+          <div class="story-block reveal delay-1">
+            <h3 class="story-block-heading">Mehr als nur Plastik und Mechanik</h3>
+            <p>Sobald die Münze im Schlitz verschwindet und die Musik einsetzt, geschieht etwas Magisches.
+               In den Augen eines Kindes wird aus dem Kunststoffgehäuse ein echtes Cockpit:</p>
+            <ul>
+              <li>Der kleine Pilot steuert seine Rakete sicher durch die Sterne.</li>
+              <li>Die mutige Rennfahrerin gewinnt den Großen Preis von Monaco.</li>
+              <li>Der junge Abenteurer reitet auf seinem Pferd dem Sonnenuntergang entgegen.</li>
+            </ul>
+          </div>
+
+          <div class="story-block reveal delay-2">
+            <h3 class="story-block-heading">Ein Anker der Kindheitserinnerungen</h3>
+            <p>Kiddy Rider sind Symbole für Unbeschwertheit. Sie sind die Belohnung nach dem
+               Wocheneinkauf, das Highlight des Samstagsausflugs und ein treuer Begleiter
+               über Generationen hinweg.</p>
+          </div>
+
+          <div class="story-block reveal delay-3">
+            <h3 class="story-block-heading">Warum wir sie lieben</h3>
+            <p>In einer immer digitaler werdenden Welt bieten diese Spielgeräte etwas herrlich
+               Haptisches. Das Greifen nach dem Lenkrad, das Drücken der Knöpfe —
+               pures, unverfälschtes Lächeln.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery clip-top-bottom">
+    <div class="gallery-head container reveal">
+      <p class="gallery-eyebrow">Die Sammlung</p>
+      <h2 class="gallery-heading">Unsere Fahrgeschäfte</h2>
+    </div>
+
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-item">
+        <img src="assets/images/dumbo-elefant-fahrt-klein.jpeg" alt="Dumbo Elefant Kinderfahrt" loading="lazy">
+        <p class="gallery-caption">Dumbo · Elefant</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/elefant-reiter-fahrt-gruen.jpeg" alt="Elefant mit Reiter" loading="lazy">
+        <p class="gallery-caption">Elefant · Reiter</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/oldtimer-autos-lager.jpeg" alt="Vintage Oldtimer Fahrgeschäfte" loading="lazy">
+        <p class="gallery-caption">Oldtimer · Klassiker</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/quad-atv-rot.jpeg" alt="Rotes Quad ATV" loading="lazy">
+        <p class="gallery-caption">Quad · ATV</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/suzuki-quad-und-scooter.jpeg" alt="Suzuki Quad und Scooter" loading="lazy">
+        <p class="gallery-caption">Suzuki · Scooter</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/quad-scooter-gruppe.jpeg" alt="Fahrzeuggruppe" loading="lazy">
+        <p class="gallery-caption">Fahrzeuggruppe</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/rakete-raumschiff-fahrt.jpeg" alt="Rakete Raumschiff" loading="lazy">
+        <p class="gallery-caption">Rakete · Raumschiff</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/oldtimer-auto-gruen-50pfg.jpeg" alt="Grüner Oldtimer" loading="lazy">
+        <p class="gallery-caption">Oldtimer · 50 Pfg.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER ============ -->
+  <section class="offer clip-top">
+    <div class="container">
+      <div class="offer-head reveal">
+        <p class="offer-eyebrow">Preise &amp; Verfügbarkeit</p>
+        <h2 class="offer-heading">Das Angebot</h2>
+      </div>
+
+      <div class="offer-cards">
+        <div class="ticket reveal delay-1">
+          <span class="ticket-price">100 €</span>
+          <span class="ticket-label">pro Stück</span>
+        </div>
+        <div class="ticket ticket--highlight reveal delay-2">
+          <span class="ticket-price">350 €</span>
+          <span class="ticket-label">4 Stück</span>
+          <span class="ticket-badge">Sie sparen 50 €</span>
+        </div>
+        <div class="ticket reveal delay-3">
+          <span class="ticket-price">500+</span>
+          <span class="ticket-label">Verfügbar</span>
+        </div>
+      </div>
+
+      <p class="offer-note reveal">Alle Geräte sind restaurierungsbedürftig.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact">
+    <div class="container">
+      <p class="contact-eyebrow reveal">Kontakt aufnehmen</p>
+      <h2 class="contact-heading reveal delay-1">Interesse?<br>Meld dich einfach.</h2>
+      <a href="mailto:automatenode@gmail.com" class="contact-link reveal delay-2">
+        ✉&nbsp; automatenode@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ IMPRESSUM ============ -->
+  <footer class="impressum">
+    <div class="container">
+      <p>
+        <strong>Ode-Automaten GmbH</strong>
+        &nbsp;·&nbsp; Bosch-Straße 6 &nbsp;·&nbsp; 21423 Winsen (Luhe)
+        &nbsp;·&nbsp; <a href="mailto:automatenode@gmail.com">automatenode@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Gallery — drag to scroll
+    const track = document.getElementById('galleryTrack');
+    let dragging = false, startX, scrollLeft;
+    track.addEventListener('mousedown',  e => { dragging = true;  startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+    track.addEventListener('mouseleave', () => dragging = false);
+    track.addEventListener('mouseup',    () => dragging = false);
+    track.addEventListener('mousemove',  e => {
+      if (!dragging) return;
+      e.preventDefault();
+      track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.6;
+    });
+  </script>
+
+</body>
+</html>
