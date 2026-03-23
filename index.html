@@ -166,6 +166,75 @@
       scroll-snap-align: start;
       box-shadow: 4px 4px 12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
     }
+
+    /* === OFFER === */
+    .offer {
+      background: var(--light-grey);
+      padding: 5rem 0;
+    }
+
+    .offer-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--dark);
+    }
+
+    .offer-cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .offer-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      flex: 1 1 200px;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .offer-card--highlight {
+      border: 2px solid var(--gold);
+    }
+
+    .offer-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .offer-label {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .offer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+      font-style: italic;
+    }
+
+    /* Responsive: stack on mobile */
+    @media (max-width: 600px) {
+      .offer-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .offer-card {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -215,6 +284,28 @@
       <img src="assets/images/quad-scooter-gruppe.jpeg" alt="Gruppe: Quad und Scooter" loading="lazy">
       <img src="assets/images/rakete-raumschiff-fahrt.jpeg" alt="Rakete Raumschiff Fahrgeschäft" loading="lazy">
       <img src="assets/images/oldtimer-auto-gruen-50pfg.jpeg" alt="Grüner Oldtimer, 50 Pfennig Münzautomat" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ANGEBOT -->
+  <section class="offer">
+    <div class="container">
+      <h2 class="offer-title">Das Angebot</h2>
+      <div class="offer-cards">
+        <div class="offer-card">
+          <span class="offer-price">100 €</span>
+          <span class="offer-label">pro Stück</span>
+        </div>
+        <div class="offer-card offer-card--highlight">
+          <span class="offer-price">350 €</span>
+          <span class="offer-label">4 Stück — Sie sparen 50 €</span>
+        </div>
+        <div class="offer-card">
+          <span class="offer-price">500+</span>
+          <span class="offer-label">Fahrgeschäfte verfügbar</span>
+        </div>
+      </div>
+      <p class="offer-note">Alle Geräte sind restaurierungsbedürftig.</p>
     </div>
   </section>
 
