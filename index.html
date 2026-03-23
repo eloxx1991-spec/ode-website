@@ -120,6 +120,52 @@
       color: var(--gold);
       font-size: 0.8em;
     }
+
+    /* === GALLERY === */
+    .gallery {
+      background: var(--white);
+      padding: 5rem 0 3rem;
+    }
+
+    .gallery-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--dark);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 1.5rem 1.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) var(--light-grey);
+    }
+
+    .gallery-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery-track::-webkit-scrollbar-track {
+      background: var(--light-grey);
+    }
+
+    .gallery-track::-webkit-scrollbar-thumb {
+      background-color: var(--gold);
+      border-radius: 3px;
+    }
+
+    .gallery-track img {
+      flex: 0 0 280px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 4px;
+      scroll-snap-align: start;
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
+    }
   </style>
 </head>
 <body>
@@ -152,6 +198,23 @@
 
       <h3>Warum wir sie lieben</h3>
       <p>In einer immer digitaler werdenden Welt bieten diese Spielgeräte etwas herrlich Haptisches. Das Greifen nach dem Lenkrad, das Drücken der Knöpfe für die Hupe oder Sirene und die sanfte Bewegung fördern nicht nur die Koordination, sondern schenken vor allem eines: pures, unverfälschtes Lächeln.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <h2 class="gallery-title">Unsere Fahrgeschäfte</h2>
+    </div>
+    <div class="gallery-track">
+      <img src="assets/images/dumbo-elefant-fahrt-klein.jpeg" alt="Dumbo Elefant Kinderfahrt" loading="lazy">
+      <img src="assets/images/elefant-reiter-fahrt-gruen.jpeg" alt="Elefant mit Reiter, grüne Basis" loading="lazy">
+      <img src="assets/images/oldtimer-autos-lager.jpeg" alt="Vintage Oldtimer Fahrgeschäfte" loading="lazy">
+      <img src="assets/images/quad-atv-rot.jpeg" alt="Rotes Quad ATV Kinderfahrt" loading="lazy">
+      <img src="assets/images/suzuki-quad-und-scooter.jpeg" alt="Suzuki Quad und Scooter" loading="lazy">
+      <img src="assets/images/quad-scooter-gruppe.jpeg" alt="Gruppe: Quad und Scooter" loading="lazy">
+      <img src="assets/images/rakete-raumschiff-fahrt.jpeg" alt="Rakete Raumschiff Fahrgeschäft" loading="lazy">
+      <img src="assets/images/oldtimer-auto-gruen-50pfg.jpeg" alt="Grüner Oldtimer, 50 Pfennig Münzautomat" loading="lazy">
     </div>
   </section>
 
