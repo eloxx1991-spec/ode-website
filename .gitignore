@@ -1,5 +1,8 @@
 # Superpowers brainstorm sessions
 .superpowers/
 
+# Claude memory & session data
+.claude/
+
 # Design docs & plans
 docs/
