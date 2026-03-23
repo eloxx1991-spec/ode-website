@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Münzgespeiste Kinderfahrgeschäfte zu kaufen. Über 500 Stück verfügbar. Elefanten, Oldtimer, Quads, Raketen & mehr. Ab 100 €.">
+  <title>Kiddy Rider Spielgeräte — Über 500 Fahrgeschäfte kaufen</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    /* === COLORS === */
+    :root {
+      --gold: #C89B3C;
+      --cream: #F5EDD8;
+      --light-grey: #F4F4F4;
+      --dark: #1C1C1C;
+      --white: #FFFFFF;
+    }
+
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1C1C1C;
+      line-height: 1.6;
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    /* === LAYOUT === */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background-color: var(--dark); /* fallback if image fails */
+      background-image: url('assets/images/elefant-fahrt-grau-gross.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--white);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* === STORY === */
+    .story {
+      background: var(--cream);
+      padding: 5rem 0;
+    }
+
+    .story-content {
+      max-width: 800px;
+    }
+
+    .story-headline {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .story-content h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .story-content p {
+      color: #3D3328;
+      margin-bottom: 1rem;
+    }
+
+    .story-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 1rem 1rem;
+    }
+
+    .story-content ul li {
+      color: #3D3328;
+      padding: 0.3rem 0;
+    }
+
+    .story-content ul li::before {
+      content: '✦ ';
+      color: var(--gold);
+      font-size: 0.8em;
+    }
+
+    /* === GALLERY === */
+    .gallery {
+      background: var(--white);
+      padding: 5rem 0 3rem;
+    }
+
+    .gallery-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--dark);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 1.5rem 1.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) var(--light-grey);
+    }
+
+    .gallery-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery-track::-webkit-scrollbar-track {
+      background: var(--light-grey);
+    }
+
+    .gallery-track::-webkit-scrollbar-thumb {
+      background-color: var(--gold);
+      border-radius: 3px;
+    }
+
+    .gallery-track img {
+      flex: 0 0 280px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 4px;
+      scroll-snap-align: start;
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    /* === OFFER === */
+    .offer {
+      background: var(--light-grey);
+      padding: 5rem 0;
+    }
+
+    .offer-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--dark);
+    }
+
+    .offer-cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .offer-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      flex: 1 1 200px;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .offer-card--highlight {
+      border: 2px solid var(--gold);
+    }
+
+    .offer-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .offer-label {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .offer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+      font-style: italic;
+    }
+
+    /* Responsive: stack on mobile */
+    @media (max-width: 600px) {
+      .offer-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .offer-card {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    /* === CONTACT === */
+    .contact {
+      background: var(--dark);
+      padding: 5rem 0;
+    }
+
+    .contact-content {
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--gold);
+    }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    /* === IMPRESSUM === */
+    .impressum {
+      background: #111;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .impressum a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .impressum a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="hero-title">Der Zauber des kleinen Augenblicks</h1>
+      <p class="hero-sub">Über 500 Kiddy Rider — bereit für ihr nächstes Abenteuer</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="container story-content">
+      <h2 class="story-headline">Der Zauber des kleinen Augenblicks:<br>Ein Hoch auf den Kiddy Rider</h2>
+      <p>Es ist ein vertrautes Bild: Ein leises Surren, bunte Lichter, die im Takt blinken, und das rhythmische Schaukeln eines kleinen Feuerwehrautos oder eines stolzen Schimmels. Für Erwachsene sind Kiddy Rider oft nur bunte Farbtupfer in der Ladenpassage, doch für Kinder sind sie das Tor zu einer anderen Welt.</p>
+
+      <h3>Mehr als nur Plastik und Mechanik</h3>
+      <p>Sobald die Münze im Schlitz verschwindet und die Musik einsetzt, geschieht etwas Magisches. In den Augen eines Kindes wird aus dem Kunststoffgehäuse ein echtes Cockpit:</p>
+      <ul>
+        <li>Der kleine Pilot steuert seine Rakete sicher durch die Sterne.</li>
+        <li>Die mutige Rennfahrerin gewinnt den Großen Preis von Monaco.</li>
+        <li>Der junge Abenteurer reitet auf seinem Pferd dem Sonnenuntergang entgegen.</li>
+      </ul>
+
+      <h3>Ein Anker der Kindheitserinnerungen</h3>
+      <p>Kiddy Rider sind Symbole für Unbeschwertheit. Sie lehren uns, dass man nicht weit reisen muss, um Großes zu erleben. Manchmal reicht ein Quadratmeter Platz und ein bisschen Fantasie, um den Rest der Welt um sich herum zu vergessen. Sie sind die Belohnung nach dem Wocheneinkauf, das Highlight des Samstagsausflugs und ein treuer Begleiter über Generationen hinweg.</p>
+
+      <h3>Warum wir sie lieben</h3>
+      <p>In einer immer digitaler werdenden Welt bieten diese Spielgeräte etwas herrlich Haptisches. Das Greifen nach dem Lenkrad, das Drücken der Knöpfe für die Hupe oder Sirene und die sanfte Bewegung fördern nicht nur die Koordination, sondern schenken vor allem eines: pures, unverfälschtes Lächeln.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <h2 class="gallery-title">Unsere Fahrgeschäfte</h2>
+    </div>
+    <div class="gallery-track">
+      <img src="assets/images/dumbo-elefant-fahrt-klein.jpeg" alt="Dumbo Elefant Kinderfahrt" loading="lazy">
+      <img src="assets/images/elefant-reiter-fahrt-gruen.jpeg" alt="Elefant mit Reiter, grüne Basis" loading="lazy">
+      <img src="assets/images/oldtimer-autos-lager.jpeg" alt="Vintage Oldtimer Fahrgeschäfte" loading="lazy">
+      <img src="assets/images/quad-atv-rot.jpeg" alt="Rotes Quad ATV Kinderfahrt" loading="lazy">
+      <img src="assets/images/suzuki-quad-und-scooter.jpeg" alt="Suzuki Quad und Scooter" loading="lazy">
+      <img src="assets/images/quad-scooter-gruppe.jpeg" alt="Gruppe: Quad und Scooter" loading="lazy">
+      <img src="assets/images/rakete-raumschiff-fahrt.jpeg" alt="Rakete Raumschiff Fahrgeschäft" loading="lazy">
+      <img src="assets/images/oldtimer-auto-gruen-50pfg.jpeg" alt="Grüner Oldtimer, 50 Pfennig Münzautomat" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ANGEBOT -->
+  <section class="offer">
+    <div class="container">
+      <h2 class="offer-title">Das Angebot</h2>
+      <div class="offer-cards">
+        <div class="offer-card">
+          <span class="offer-price">100 €</span>
+          <span class="offer-label">pro Stück</span>
+        </div>
+        <div class="offer-card offer-card--highlight">
+          <span class="offer-price">350 €</span>
+          <span class="offer-label">4 Stück — Sie sparen 50 €</span>
+        </div>
+        <div class="offer-card">
+          <span class="offer-price">500+</span>
+          <span class="offer-label">Fahrgeschäfte verfügbar</span>
+        </div>
+      </div>
+      <p class="offer-note">Alle Geräte sind restaurierungsbedürftig.</p>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="contact">
+    <div class="container contact-content">
+      <h2 class="contact-title">Interesse? Meld dich einfach.</h2>
+      <div class="contact-links">
+        <a href="mailto:automatenode@gmail.com" class="contact-link">
+          <span class="contact-icon">✉</span>
+          <span>automatenode@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPRESSUM -->
+  <footer class="impressum">
+    <div class="container">
+      <p><strong>Ode-Automaten GmbH</strong></p>
+      <p>Bosch-Straße 6 · 21423 Winsen (Luhe)</p>
+      <p><a href="mailto:automatenode@gmail.com">automatenode@gmail.com</a> &nbsp;·&nbsp; <a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
