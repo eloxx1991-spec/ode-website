@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Impressum — Ode-Automaten GmbH</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    :root {
+      --navy: #1B2A4A;
+      --gold: #C89B3C;
+      --cream: #FDF8EE;
+      --ink: #2A2218;
+      --muted: #6B6255;
+      --border: #E4D9C3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    .site-header {
+      background: var(--navy);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .back-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5) !important;
+    }
+    .back-link:hover { color: var(--gold) !important; }
+
+    .content {
+      max-width: 760px;
+      margin: 4rem auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .page-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    p { margin-bottom: 1rem; font-size: 0.95rem; }
+
+    a { color: var(--navy); }
+    a:hover { color: var(--gold); }
+
+    .address-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      line-height: 2;
+    }
+
+    .todo {
+      background: #fff8e1;
+      border: 1px dashed #e0c060;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      color: #8a6a00;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+
+    .site-footer {
+      background: var(--navy);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .site-footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .site-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html">Kiddy Rider</a>
+    <a href="index.html" class="back-link">← Zurück</a>
+  </header>
+
+  <main class="content">
+
+    <h1 class="page-title">Impressum</h1>
+    <p class="page-meta">Angaben gemäß § 5 TMG</p>
+
+    <h2>Anbieter</h2>
+    <div class="address-block">
+      <strong>Ode-Automaten GmbH</strong><br>
+      Bosch-Straße 6<br>
+      21423 Winsen (Luhe)<br>
+      Deutschland
+    </div>
+
+    <h2>Geschäftsführung</h2>
+    <div class="address-block">
+      <!-- TODO: Geschäftsführer eintragen -->
+      <span style="color:#999;">[Name Geschäftsführer]</span>
+    </div>
+    <p class="todo">⚠ Bitte Geschäftsführer-Name vor Veröffentlichung eintragen.</p>
+
+    <h2>Kontakt</h2>
+    <div class="address-block">
+      E-Mail: <a href="mailto:automatenode@gmail.com">automatenode@gmail.com</a>
+    </div>
+
+    <h2>Haftungshinweis</h2>
+    <p>
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die
+      Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich
+      deren Betreiber verantwortlich.
+    </p>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">Kiddy Rider</a>
+      &nbsp;·&nbsp; Ode-Automaten GmbH · Bosch-Straße 6 · 21423 Winsen (Luhe)
+      &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+</body>
+</html>
