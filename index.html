@@ -9,12 +9,49 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ode-automaten.com/">
+
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://ode-automaten.com/">
+  <meta property="og:locale"      content="de_DE">
   <meta property="og:title"       content="Kiddy Rider — Über 500 Fahrgeschäfte kaufen">
   <meta property="og:description" content="Münzgespeiste Kinderfahrgeschäfte ab 100 €. Elefanten, Oldtimer, Quads, Raketen & mehr. Abholung in Winsen (Luhe).">
-  <meta property="og:image"       content="assets/images/lager-sechs-fahrgeschaefte-reihe.webp">
-  <!-- og:url — bitte mit finaler Domain ersetzen, z.B.: https://kiddy-rider.de/ -->
+  <meta property="og:image"       content="https://ode-automaten.com/assets/images/lager-sechs-fahrgeschaefte-reihe.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Kiddy Rider — Über 500 Fahrgeschäfte kaufen">
+  <meta name="twitter:description" content="Münzgespeiste Kinderfahrgeschäfte ab 100 €. Elefanten, Oldtimer, Quads, Raketen & mehr. Abholung in Winsen (Luhe).">
+  <meta name="twitter:image"       content="https://ode-automaten.com/assets/images/lager-sechs-fahrgeschaefte-reihe.webp">
+
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ode-Automaten GmbH",
+    "description": "Münzgespeiste Kinderfahrgeschäfte — über 500 Fahrgeschäfte zu kaufen. Elefanten, Oldtimer, Quads, Raketen & mehr.",
+    "url": "https://ode-automaten.com",
+    "email": "automatenode@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bosch-Straße 6",
+      "addressLocality": "Winsen (Luhe)",
+      "postalCode": "21423",
+      "addressCountry": "DE"
+    },
+    "image": "https://ode-automaten.com/assets/images/lager-sechs-fahrgeschaefte-reihe.webp",
+    "priceRange": "€",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "100",
+      "offerCount": "500"
+    }
+  }
+  </script>
 
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
@@ -95,6 +132,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -257,6 +295,44 @@
       width: 1px;
       height: 36px;
       background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 85svh;
+        min-height: 85vh;
+      }
+      .hero-content {
+        padding: 4rem 1.25rem 6rem;
+      }
+      .hero-badge {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .hero-title {
+        font-size: clamp(3.5rem, 22vw, 5.5rem);
+        text-shadow: 3px 3px 0 rgba(196, 30, 58, 0.45);
+      }
+      .hero-subtitle {
+        font-size: clamp(0.75rem, 4vw, 1rem);
+        letter-spacing: 0.18em;
+      }
+      .hero-rule {
+        margin: 1.5rem auto;
+      }
+      .hero-tagline {
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+      }
+      .hero-scroll-hint {
+        bottom: 1.5rem;
+        font-size: 0.6rem;
+      }
+      .hero-photo {
+        background-position: center 40%;
+      }
     }
 
     /* ============================================================
