@@ -144,11 +144,11 @@
     .hero-photo {
       position: absolute;
       inset: 0;
-      background-image: url('assets/images/lager-sechs-fahrgeschaefte-reihe.webp');
+      background-image: url('assets/images/dino-pferd-auto-gruppe.webp');
       background-size: cover;
       background-position: center;
-      opacity: 0.18;
-      filter: saturate(0.2) contrast(1.1);
+      opacity: 0.25;
+      filter: saturate(0.35) contrast(1.15);
     }
 
     /* Diagonal carnival stripe overlay */
@@ -270,6 +270,28 @@
       letter-spacing: 0.12em;
       opacity: 0;
       animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      padding: 0.9rem 2.5rem;
+      margin-top: 2rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      opacity: 0;
+      animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 1s;
+    }
+
+    .hero-cta:hover {
+      background: var(--white);
+      transform: translateY(-2px);
     }
 
     .hero-scroll-hint {
@@ -655,10 +677,22 @@
     .offer-note {
       text-align: center;
       margin-top: 3rem;
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.45);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      color: #2a2a2a;
+      background: none;
+      border: none;
+      padding: 1rem 2rem;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .offer-note-wrap {
+      text-align: center;
+      margin-top: 3rem;
     }
 
     /* ============================================================
@@ -743,9 +777,10 @@
     <div class="hero-content">
       <div class="hero-badge">Ode-Automaten GmbH · Winsen (Luhe)</div>
       <h1 class="hero-title">Kiddy<br>Rider</h1>
-      <span class="hero-subtitle">Spielgeräte für Kinder</span>
+      <span class="hero-subtitle">Spielgeräte zu verkaufen</span>
       <div class="hero-rule"></div>
       <p class="hero-tagline">Über 500 Fahrgeschäfte &nbsp;·&nbsp; ab 100 €</p>
+      <a href="#angebot" class="hero-cta">Jetzt kaufen — ab 100 €</a>
     </div>
 
     <div class="hero-scroll-hint">Entdecken</div>
@@ -845,11 +880,11 @@
   </section>
 
   <!-- ============ OFFER ============ -->
-  <section class="offer clip-top">
+  <section class="offer clip-top" id="angebot">
     <div class="container">
       <div class="offer-head reveal">
         <p class="offer-eyebrow">Preise &amp; Verfügbarkeit</p>
-        <h2 class="offer-heading">Das Angebot</h2>
+        <h2 class="offer-heading">Jetzt kaufen</h2>
       </div>
 
       <div class="offer-cards">
@@ -868,7 +903,9 @@
         </div>
       </div>
 
-      <p class="offer-note reveal">Alle Geräte sind restaurierungsbedürftig.</p>
+      <div class="offer-note-wrap">
+        <p class="offer-note reveal"><span style="color:var(--gold)">✦</span> Nur Verkauf, kein Verleih &nbsp;<span style="font-size:2.4em;line-height:0;vertical-align:-0.22em">·</span>&nbsp; Restaurierungsbedürftig &nbsp;<span style="font-size:2.4em;line-height:0;vertical-align:-0.22em">·</span>&nbsp; Abholung in Winsen</p>
+      </div>
     </div>
   </section>
 
